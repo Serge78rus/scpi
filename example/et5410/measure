@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DEVICE="/dev/ttyUSB0"
+
+echo "measure current"
+scpi -d $DEVICE -b 115200 -c MEAS:CURR?
+
+echo "measure voltage"
+scpi -d $DEVICE -b 115200 -c MEAS:VOLT?
+
+echo "measure power"
+scpi -d $DEVICE -b 115200 -c MEAS:POWE?
+
+echo "measure resistance"
+scpi -d $DEVICE -b 115200 -c MEAS:RESI?
+
+echo "measure all (current, voltage, power, resistance)"
+scpi -d $DEVICE -b 115200 -c MEAS:ALL?
+

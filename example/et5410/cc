@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DEVICE="/dev/ttyUSB0"
+
+echo "read cc set current"
+scpi -d $DEVICE -b 115200 -c CURR:CC?
+
+echo "write cc set current"
+scpi -d $DEVICE -b 115200 -c "CURR:CC 0.2"
+
+echo "read cc set current"
+scpi -d $DEVICE -b 115200 -c CURR:CC?
+

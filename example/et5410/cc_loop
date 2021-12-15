@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DEVICE="/dev/ttyUSB0"
+FROM_MA=0
+TO_MA=2000
+STEP_MA=100
+DELAY_S=0.1
+
+#switch load on
+scpi -d $DEVICE -b 115200 -c "CH:SW ON" >/dev/null
+
+for ((i_ma = FROM_MA; i_ma <= TO_MA; i_ma += STEP_MA)); do
+
+	#calculate current set in ampere
+	i_a=$(echo "scale=3; $i_ma/1000;" | bc | sed -e 's/^\(\.\)/0\1/')
+	#echo "i_ma: $i_ma i_a: $i_a"
+
+	#set load CC value
+	scpi -d $DEVICE -b 115200 -c "CURR:CC $i_a" >/dev/null
+
+	sleep $DELAY_S
+	
+	#read load current and voltage
+	i=$(scpi -d $DEVICE -b 115200 -c MEAS:CURR? | sed -e 's/^R\s*//')
+	u=$(scpi -d $DEVICE -b 115200 -c MEAS:VOLT? | sed -e 's/^R\s*//')
+	
+	echo "$i_a: i=$i u=$u"
+
+done
+
+#switch load off
+scpi -d $DEVICE -b 115200 -c "CH:SW OFF" >/dev/null
+
+
