@@ -27,6 +27,7 @@ static struct option long_options[] = {
 	    {.name = "baudrate",		.has_arg = required_argument,	.flag = 0, .val = 'b'},
 	    {.name = "timeout",		    .has_arg = required_argument,	.flag = 0, .val = 't'},
 	    {.name = "command",		    .has_arg = required_argument,	.flag = 0, .val = 'c'},
+
 		{0, 0, 0, 0}
 };
 
@@ -146,21 +147,30 @@ void options_help(void)
 	printf( "\n"
 			"Usage: "APP_NAME" options\n"
 			"\n"
-			"stub ... \n"
-			"stub ... \n"
-			"stub ... \n"
+			"options:\n"
 			"\n"
-	);
+			"-h, --help                       show this help screen and exit\n"
+			"-V, --version                    show version information and exit\n"
+			"-v, --verbose          optional  show verbose information\n"
+			"                                 (default: false)\n"
+			"-d, --device=NAME      required  serial communication device\n"
+			"-b, --baudrate=VALUE   optional  communication baudrate\n"
+			"                                 (default: current setting for device)\n"
+			"-t, --timeout=VALUE    optional  communication timeout in milliseconds\n"
+			"                                 (default: %i ms)\n"
+			"-c, --command=COMMAND  required  SCPI command\n"
+			"                                 If COMMAND contain spaces it must be quoted\n"
+			"                                 May use more than one command, for examle:\n"
+			"                                 -c COMMAND1 -c COMMAND2 ... etc\n"
+			"\n",
 
-	//TODO stub
+			DEFAULT_TIMEOUT_MS
+	);
 }
 
 void options_version(void)
 {
-	printf(APP_NAME" version "VERSION"\n");
-
-	//TODO license and copyright
-
+	printf(APP_NAME" version "VERSION" by Serge L. Ryadkow (aka Serge78rus), GPL-3.0 License\n");
 }
 
 void options_clean(void)
