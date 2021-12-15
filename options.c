@@ -27,7 +27,6 @@ static struct option long_options[] = {
 	    {.name = "baudrate",		.has_arg = required_argument,	.flag = 0, .val = 'b'},
 	    {.name = "timeout",		    .has_arg = required_argument,	.flag = 0, .val = 't'},
 	    {.name = "command",		    .has_arg = required_argument,	.flag = 0, .val = 'c'},
-
 		{0, 0, 0, 0}
 };
 

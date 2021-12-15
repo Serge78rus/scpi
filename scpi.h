@@ -10,6 +10,7 @@
 
 #include <stdbool.h>
 
+//public functions
 bool scpi_open(const char *serial, unsigned long baudrate);
 void scpi_close(void);
 bool scpi_send(const char *command);

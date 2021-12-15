@@ -10,7 +10,10 @@
 
 #include <stdbool.h>
 
-//type definitions
+/*
+ * type definitions
+ */
+
 struct Command {
 	char *command;
 	struct Command *next;

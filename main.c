@@ -14,17 +14,9 @@
 #include "options.h"
 #include "scpi.h"
 
-//private variables
-//static volatile bool keep_running = true;
-
-//private functions
-//static void int_handler(int dummy);
-
 int main(int argc, char **argv)
 {
 	//printf("begin\n");
-
-	//signal(SIGINT, int_handler);
 
 	struct Options *options = options_parse(argc, argv);
 	if (!options) {
@@ -78,13 +70,3 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-/*
- * private functions
- */
-
-/*
-static void int_handler(int dummy)
-{
-    keep_running = false;
-}
-*/

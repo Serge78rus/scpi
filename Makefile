@@ -1,3 +1,4 @@
+
 TARGET = scpi
 PREFIX = /usr/local/bin
 SRCS = main.c options.c scpi.c

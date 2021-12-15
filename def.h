@@ -11,6 +11,6 @@
 #define APP_NAME "scpi"
 #define VERSION "1.0.1"
 
-#define DEFAULT_TIMEOUT_MS 1000 /*TODO?*/
+#define DEFAULT_TIMEOUT_MS 1000 /*TODO real value?*/
 
 #endif /* DEF_H_ */

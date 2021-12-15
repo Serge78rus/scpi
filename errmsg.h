@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <errno.h>
 
+//error message macros
+
 #define ERR_MSG(message) fprintf(stderr, "ERROR [%s:%d]\t"message"\n", __FILE__, __LINE__)
 #define ERR_MSG_F(message, ...) fprintf(stderr, "ERROR [%s:%d]\t"message"\n", __FILE__, __LINE__, __VA_ARGS__)
 

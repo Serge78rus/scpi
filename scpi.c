@@ -14,9 +14,7 @@
 #include "scpi.h"
 #include "errmsg.h"
 
-//#define BAUDRATE B115200
 #define BUFF_SIZE 1024 /*TODO...*/
-//#define TIMEOUT_MS 1000
 
 static int serial_fd = -1;
 static struct termios old_serial_termios;
