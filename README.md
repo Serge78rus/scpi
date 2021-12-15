@@ -14,4 +14,4 @@ Last command install application binary file to /usr/local/bin.
 ```bash
 scpi -d /dev/ttyUSB0 -b 115200 -c *IDN?
 ```
-More examples see in example directory
+For more examples see example directory
