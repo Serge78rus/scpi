@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DEVICE="/dev/ttyUSB0"
+
+echo
+echo "show device information and protocol version"
+scpi -d $DEVICE -b 115200 -c *IDN? -c SYST:VERS? 
+
+echo
+echo "show boot settings"
+scpi -d $DEVICE -b 115200 -c SYSS:STAR? -c SYSS:LANG?
+
+echo
+echo "show communication setting"
+scpi -d $DEVICE -b 115200 -c COMM:BAUD?
+
+echo
+echo "show channel mode and ON/OFF state"
+scpi -d $DEVICE -b 115200 -c CH:MODE? -c CH:SW?
+
+echo
+echo "show fan state"
+scpi -d $DEVICE -b 115200 -c SELF:FAN?
+
+
