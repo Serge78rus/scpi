@@ -39,7 +39,19 @@ int main(int argc, char **argv)
 		options_print();
 	}
 
-	//TODO check options
+	// check options
+	if (!options->serial_device) {
+		ERR_MSG("No communication device specified");
+		options_help();
+		options_clean();
+		return 1;
+	}
+	if (!options->commands) {
+		ERR_MSG("No command specified");
+		options_help();
+		options_clean();
+		return 1;
+	}
 
 	if (scpi_open(options->serial_device, options->baudrate)) {
 
