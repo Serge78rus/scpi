@@ -1,3 +1,10 @@
+#eclipse
 .settings
 .cproject
 .project
+
+#C
+*.o
+
+#binary
+scpi
